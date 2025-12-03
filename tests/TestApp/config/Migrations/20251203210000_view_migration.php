@@ -27,7 +27,9 @@ class ViewMigration extends AbstractMigration
         switch ($driverClass) {
             case \Cake\Database\Driver\Sqlite::class:
                 break;
+
             case \Cake\Database\Driver\Postgres::class:
+            case \Cake\Database\Driver\Mysql::class:
                 $query = <<<SQL
 CREATE VIEW view_cities (country_name, city_name) AS 
     SELECT Countries.name, Cities.name 
